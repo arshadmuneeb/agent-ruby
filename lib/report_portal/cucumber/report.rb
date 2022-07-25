@@ -55,7 +55,7 @@ module ReportPortal
           name = "#{@extractor.scenario_keyword(test_case)}: #{@extractor.scenario_name(test_case)}"
           puts "DebugName #{name}"
         rescue NoMethodError => e
-            name = "Scenario: #{@extractor.scenario_name(test_case)}"
+            name = "Scenario: Example"
         end
         description = test_case.location.to_s
         tags = test_case.tags.map(&:name)
