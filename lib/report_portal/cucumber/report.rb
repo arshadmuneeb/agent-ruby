@@ -51,7 +51,11 @@ module ReportPortal
           start_feature_with_parentage(feature, desired_time)
         end
 
-        name = "#{@extractor.scenario_keyword(test_case)}: #{@extractor.scenario_name(test_case)}"
+        begin
+          name = "#{@extractor.scenario_keyword(test_case)}: #{@extractor.scenario_name(test_case)}"
+        rescue NoMethodError => e
+            name = "Scenario: #{@extractor.scenario_name(test_case)}"
+        end
         description = test_case.location.to_s
         tags = test_case.tags.map(&:name)
         type = :STEP
