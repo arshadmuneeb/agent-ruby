@@ -50,9 +50,10 @@ module ReportPortal
           end_feature(desired_time) unless @parent_item_node.is_root?
           start_feature_with_parentage(feature, desired_time)
         end
-
+        puts "TestCaseDeubg #{test_case}"
         begin
           name = "#{@extractor.scenario_keyword(test_case)}: #{@extractor.scenario_name(test_case)}"
+          puts "DebugName #{name}"
         rescue NoMethodError => e
             name = "Scenario: #{@extractor.scenario_name(test_case)}"
         end
